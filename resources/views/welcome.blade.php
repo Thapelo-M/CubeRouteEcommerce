@@ -49,7 +49,21 @@
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-6">
-        <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Our Products</h2>
+        <h2 class="text-2xl font-bold mb-6 text-white-900 dark:text-white">Our Products</h2>
+        <!-- Filter and search by category dropdown -->
+        <div class="mb-6">
+            <form action="{{ url('products') }}" method="GET" class="flex items-center space-x-4">
+                <select name="category" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-red-500">
+                    <option value="All" style="color: #fff;">All Categories</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}" style="color: #fff;">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+                <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded transition-colors duration-300">
+                    Filter
+                </button>
+            </form>
+        </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             @foreach($products as $product)

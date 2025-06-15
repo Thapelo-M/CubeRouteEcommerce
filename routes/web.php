@@ -18,15 +18,10 @@ use App\Models\Product;
 |
 */
 
-// Route::get('/', function () {
-//     $products = Product::with('categories')->get();
-//     return view('welcome', compact('products'));
-// });
 
-Route::get('/', function () {
-    $products = Product::with('categories')->paginate(10);
-    return view('welcome', compact('products'));
-});
+Route::get('/', [ProductController::class, 'home']);
+
+Route::get('/products', [ProductController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
