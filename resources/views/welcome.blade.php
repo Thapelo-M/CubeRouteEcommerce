@@ -53,7 +53,7 @@
         <!-- Filter and search by category dropdown -->
         <div class="mb-6">
             <form action="{{ url('products') }}" method="GET" class="flex items-center space-x-4">
-                <select name="category" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-red-500">
+                <select name="category" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-red-500" style="color: #fff;">
                     <option value="All" style="color: #fff;">All Categories</option>
                     @foreach($categories as $category)
                         <option value="{{ $category->id }}" style="color: #fff;">{{ $category->name }}</option>
