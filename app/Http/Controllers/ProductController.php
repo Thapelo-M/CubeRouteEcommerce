@@ -26,7 +26,6 @@ class ProductController extends Controller
         //Views the product variants by id
         $product = Product::with(['variants', 'categories'])->findOrFail($productId);
         return view('product', compact('product'));
-
     }
 
     public function index(Request $request)
@@ -148,6 +147,15 @@ class ProductController extends Controller
 
         return view('manage')->with('success', 'Product updated successfully');
 
+    }
+
+    //Delte a variant
+    public function destroyVariant($variantId)
+    {
+        $variant = Variant::findOrFail($variantId);
+        $variant->delete();
+
+        return redirect()->action([ProductController::class, 'home']);
     }
 
 }

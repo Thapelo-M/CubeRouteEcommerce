@@ -73,4 +73,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::delete('/variant.destroy/{variant}', [ProductController::class, 'destroyVariant'])->name('variant.destroy')->middleware(['auth', 'verified']);
+
 require __DIR__.'/auth.php';
